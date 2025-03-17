@@ -1,0 +1,30 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: "1. Getting Started"
+    chapters:
+    - file: gettingstarted/prereq
+    - file: gettingstarted/vscode
+      sections:
+      - file: path/to/part1/chapter2/section1
+  - caption: "2. Data Wrangling"
+    chapters:
+    - file: python/codingbasics
+    - file: python/pandas
+      sections:
+      - file: python/dfcommands
+    - file: python/excel
+    - file: python/jupyter
+    - file: python/R
+  - caption: "3. Miscellanious"
+    chapters:
+    - file: other/bash
+    - file: other/github
+    - file: other/spartan
+    - file: other/chatgpt
+
+
+    
