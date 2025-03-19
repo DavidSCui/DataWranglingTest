@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2c. Python, Pandas &amp; Excel &#8212; Data Wrangling 101 AND Lab</title>
+    <title>2c. Python, Pandas &amp; Excel &#8212; AND Lab Coding &amp; Data Wrangling</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Wrangling 101 AND Lab - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Wrangling 101 AND Lab - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AND Lab Coding & Data Wrangling - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="AND Lab Coding & Data Wrangling - Home"/>`);</script>
   
   
 </a></div>
@@ -182,9 +182,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/prereq.html">1a. Prerequisites</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/chatgpt.html">1c. Learning Resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Data Wrangling</span></p>
 <ul class="current nav bd-sidenav">
@@ -195,14 +194,13 @@
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2c. Python, Pandas &amp; Excel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">2d. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="R.html">2e. Python &amp; R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythontoR.html">2e. Python &amp; R</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Miscellanious</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../other/bash.html">3a. Basic Shell (Bash/Zsh/Cmd)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/github.html">3b. Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/spartan.html">3c. Spartan (HPC)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/chatgpt.html">3d. ChatGPT &amp; Other AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/github.html">3b. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/spartan.html">3c. Spartan (UoM HPC)</a></li>
 </ul>
 
     </div>
@@ -328,7 +326,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -344,6 +344,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-csv-and-xlsx-files">Opening CSV and XLSX Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv-or-xlsx">Exporting to CSV or XLSX</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -356,7 +365,18 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="c-python-pandas-excel">
 <h1>2c. Python, Pandas &amp; Excel<a class="headerlink" href="#c-python-pandas-excel" title="Link to this heading">#</a></h1>
 <p>Let’s get on with interacting with excel and csv files through Python and Pandas.</p>
-<p>Opening csv files</p>
+<section id="opening-csv-and-xlsx-files">
+<h2>Opening CSV and XLSX Files<a class="headerlink" href="#opening-csv-and-xlsx-files" title="Link to this heading">#</a></h2>
+<p>To open CSV or XLSX files (the big spreadsheets that you open in Excel), we can use the Pandas methods <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> and <code class="docutils literal notranslate"><span class="pre">read_excel</span></code> to open CSV and XLSX files respectively, and assign them to a variable as a DataFrame.</p>
+<div class="tip admonition">
+<p class="admonition-title">Hint</p>
+<p>Remember that for below, <code class="docutils literal notranslate"><span class="pre">pd</span></code> tells the computer to use the pandas library, and <code class="docutils literal notranslate"><span class="pre">.read_csv</span></code> tells the computer to use that specific function (method) from the pandas.</p>
+<ol class="arabic simple">
+<li><p>Set a variable with a name of your choosing to <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code> (or .read_xlsx for Excel files)</p></li>
+<li><p>In the brackets that follow it, type in the file location (<em>file path</em>) of the file you want to open in quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p></li>
+<li><p>The extra argument, <code class="docutils literal notranslate"><span class="pre">header=0</span></code> just tells the code that the first row of the spreadsheet are table names, but pandas will usually figure this out on its own.</p></li>
+</ol>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -679,86 +699,32 @@ document.write(`
 <p>72 rows × 37 columns</p>
 </div></div></div>
 </div>
-<p>Exporting to csv or excel</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Mac and Linux use forward slashes <code class="docutils literal notranslate"><span class="pre">/</span></code> to distinguish levels of directories, whereas Windows use backslashes <code class="docutils literal notranslate"><span class="pre">\</span></code>. This can cause issues when you try to run code written on one platform from another. This can be addressed using the <code class="docutils literal notranslate"><span class="pre">os</span></code> module, detailed in the page below and later.</p>
+</div>
+</section>
+<section id="exporting-to-csv-or-xlsx">
+<h2>Exporting to CSV or XLSX<a class="headerlink" href="#exporting-to-csv-or-xlsx" title="Link to this heading">#</a></h2>
+<p>Same thing, just using <code class="docutils literal notranslate"><span class="pre">.to_excel</span></code> and <code class="docutils literal notranslate"><span class="pre">.to_csv</span></code> instead.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;/Users/davidcui/Documents/ANDLabLocal/testoutput.xlsx&quot;</span><span class="p">)</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method NDFrame.to_csv of                        date        expName psychopyVersion  frameRate  RunNum  \
-0   2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-1   2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-2   2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-3   2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-4   2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-..                      ...            ...             ...        ...     ...   
-67  2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-68  2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-69  2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-70  2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-71  2024-01-29_10h41.12.362  Gen_Run1_Tone        2023.1.0  59.931379       1   
-
-    SetNum         FirstStim  SecondStim          Confidence       Outcome  \
-0        1  img/Agent_LW.png  img/HS.png  img/confidence.png  img/lost.png   
-1        1  img/Agent_LM.png  img/HS.png  img/confidence.png   img/won.png   
-2        1  img/Agent_LS.png  img/AW.png  img/confidence.png   img/won.png   
-3        1  img/Agent_LW.png  img/HM.png  img/confidence.png   img/won.png   
-4        1  img/Agent_LW.png  img/AM.png  img/confidence.png   img/won.png   
-..     ...               ...         ...                 ...           ...   
-67       1  img/Agent_HS.png  img/LM.png  img/confidence.png  img/lost.png   
-68       1  img/Agent_HW.png  img/AW.png  img/confidence.png   img/won.png   
-69       1  img/Agent_HM.png  img/AM.png  img/confidence.png   img/won.png   
-70       1  img/Agent_HW.png  img/AS.png  img/confidence.png  img/lost.png   
-71       1  img/Agent_HM.png  img/HS.png  img/confidence.png  img/lost.png   
-
-    ...  outcome_img.started Tone.started  Tone.stopped  jitter_iti  \
-0   ...           127.570414   127.717008    129.018113         2.0   
-1   ...           138.423701   138.427036           NaN         1.0   
-2   ...           147.653181   147.801372    149.105119         0.5   
-3   ...           157.574944   157.743403    159.060888         1.5   
-4   ...           167.016511   167.168269    168.469253         1.0   
-..  ...                  ...          ...           ...         ...   
-67  ...           754.383809   754.550375    755.851646         1.0   
-68  ...           763.244336   763.391553    764.695238         1.0   
-69  ...           774.533208   774.701328    776.005316         1.0   
-70  ...           782.808785   782.975400    784.276600         0.5   
-71  ...           789.347845   789.514509    790.815628         2.0   
-
-    iti.started  iti.stopped Agent_Strength Opponent_Strength  Agent_Health  \
-0    129.034842   131.043654              3                 2             1   
-1    139.476978   140.485616              3                 2             2   
-2    149.118927   149.619874              3                 1             3   
-3    159.077901   160.579354              3                 2             1   
-4    168.486136   169.487328              3                 1             1   
-..          ...          ...            ...               ...           ...   
-67   755.868268   756.869467              2                 3             3   
-68   764.709329   765.710586              2                 1             1   
-69   776.019287   777.020462              2                 1             2   
-70   784.293160   784.794036              2                 1             1   
-71   790.832308   792.834019              2                 2             2   
-
-    Opponent_Health  
-0                 3  
-1                 3  
-2                 1  
-3                 2  
-4                 2  
-..              ...  
-67                2  
-68                1  
-69                2  
-70                3  
-71                3  
-
-[72 rows x 37 columns]&gt;
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/Users/davidcui/Documents/ANDLabLocal/testoutput.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="tip admonition">
+<p class="admonition-title">Absolute vs Relative Paths</p>
+<p>When setting a file path, you can either type in an absolute or relative path.</p>
+<ul class="simple">
+<li><p>An <strong>absolute</strong> path is like typing out your home address to online shopping - it says exactly where you are at every level of location (e.g., country, state, suburb, street). This is like the full Christian name of your file; the code will definitely find the file, but it makes it non-flexible as if anything containing the file moves (e.g., you send your project folder to a friend), the code will not find the file. Additionally, this makes it difficult to automate anything.</p></li>
+<li><p>A <strong>relative</strong> path is like explaining to a friend where your house while you’re in the same suburb - “I’m just around the corner”. This is the computer equivalent of iykyk or an inside-joke; assuming the code is being run in the same local environment as the file (e.g., the same folder), the code will find the file.</p></li>
+</ul>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -816,6 +782,22 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opening-csv-and-xlsx-files">Opening CSV and XLSX Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-csv-or-xlsx">Exporting to CSV or XLSX</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -825,7 +807,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By David Cui & Yubing Zhang
+By David Cui (Affective Neuroscience and Development Lab)
 </p>
 
   </div>

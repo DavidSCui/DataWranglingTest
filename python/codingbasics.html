@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2a. Coding Fundamentals &#8212; Data Wrangling 101 AND Lab</title>
+    <title>2a. Coding Fundamentals &#8212; AND Lab Coding &amp; Data Wrangling</title>
   
   
   
@@ -61,7 +61,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2b. Data Wrangling 101" href="pandas.html" />
-    <link rel="prev" title="1b. Visual Studio Code" href="../gettingstarted/vscode.html" />
+    <link rel="prev" title="1c. Learning Resources" href="../gettingstarted/chatgpt.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Wrangling 101 AND Lab - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Wrangling 101 AND Lab - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AND Lab Coding & Data Wrangling - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="AND Lab Coding & Data Wrangling - Home"/>`);</script>
   
   
 </a></div>
@@ -182,9 +182,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/prereq.html">1a. Prerequisites</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/chatgpt.html">1c. Learning Resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Data Wrangling</span></p>
 <ul class="current nav bd-sidenav">
@@ -195,14 +194,13 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="excel.html">2c. Python, Pandas &amp; Excel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">2d. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="R.html">2e. Python &amp; R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythontoR.html">2e. Python &amp; R</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Miscellanious</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../other/bash.html">3a. Basic Shell (Bash/Zsh/Cmd)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/github.html">3b. Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/spartan.html">3c. Spartan (HPC)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/chatgpt.html">3d. ChatGPT &amp; Other AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/github.html">3b. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/spartan.html">3c. Spartan (UoM HPC)</a></li>
 </ul>
 
     </div>
@@ -376,15 +374,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="a-coding-fundamentals">
 <h1>2a. Coding Fundamentals<a class="headerlink" href="#a-coding-fundamentals" title="Link to this heading">#</a></h1>
+<p><strong>Let’s try to learn the fundamentals of Python fast.</strong></p>
 <blockquote>
 <div><p>Python is the most popular programming language to learn, partly due to its relative simplicity and universality of the concepts that are learnt during the process of learning to code in Python.</p>
 </div></blockquote>
-<p>Let’s try to learn the fundamentals of Python fast.</p>
-<p><strong>IMPORTANT</strong>: You are going to forget everything you learn about coding constantly. What is important is that you remember that these concepts exist, rather than rote-learning how they are done. Professional programmers and comp-sci students use Google and ChatGPT to check how things work all the time.</p>
-<blockquote>
-<div><p>It is tempting to use ChatGPT and other AI models like Claude to write all your code, and while sometimes you just need to get stuff done quickly, you don’t learn anything. However, AI can actually really help you learn coding by deconstructing existing code and reminding you how concepts work.</p>
-<p>Knowing the basics of coding, combined with Google, Stack Overflow and AI, is all you need in today’s world to code. Coding is problem-solving, and while you will eventually get better at writing more efficient and neat code, the best code is the code that works.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You are going to forget everything you learn about coding constantly. What is important is that you remember that these concepts exist, rather than rote-learning how they are done. Professional programmers and comp-sci students use Google and ChatGPT to check how things work all the time.</p>
+</div>
 <section id="commands">
 <h2>Commands<a class="headerlink" href="#commands" title="Link to this heading">#</a></h2>
 <p>To do stuff in Python and R, you will enter in commands that generally take the form: function(arguments)</p>
@@ -424,15 +421,16 @@ document.write(`
 <h2>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <p>In higher level programming languages like Python, variables essentially allow you to store information in key “words” or “phrases”. You use an equals sign (=) to assign information to a variable name of your choosing.</p>
 <p>Variables generally take the form: Variable = Information</p>
-<blockquote>
-<div><p>Good practice for naming variables is to stick to a consistent naming style. <strong>You cannot use spaces in variable names</strong>, so there are a couple of popular conventions:</p>
+<div class="tip admonition">
+<p class="admonition-title">Variable Naming Conventions</p>
+<p>Good practice for naming variables is to stick to a consistent naming style. <strong>You cannot use spaces in variable names</strong>, so there are a couple of popular conventions:</p>
 <ul class="simple">
 <li><p><strong>snake_case</strong>: all letters lowercase, using underscores to seperate words. E.g., variable_name. Associated with Python and R. <strong>We will be following this convention since we are coding in Python and R.</strong></p></li>
 <li><p><strong>MACRO_CASE</strong>: all letters uppcase, using underscores to seperate words. E.G., VARIABLE_NAME. Use with variables that must remain the same (constants).</p></li>
 <li><p><strong>camelCase</strong>: first word lowercase, and using uppercase to seperate words. E.g., variableName. Associated with Java and Javascript.</p></li>
 <li><p><strong>PascalCase</strong>: first letter uppercase, and using uppercase to seperate words. E.g., VariableName. Associated with C.</p></li>
 </ul>
-</div></blockquote>
+</div>
 <p>There are four data types of variables: integers, floats, strings, and boolean.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -530,14 +528,16 @@ document.write(`
 <section id="list-and-tuples">
 <h2>List and Tuples<a class="headerlink" href="#list-and-tuples" title="Link to this heading">#</a></h2>
 <p>Lists and tuples are variables that contain a collection of individual data (“items”). They can both contain multiple data types.</p>
-<blockquote>
-<div><p><strong>Lists</strong> are <strong>mutable</strong>, meaning the items are modifiable by code that follows it. These are created by listing items inbetween square brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, seperated by commas.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Lists</strong> are <strong>mutable</strong>, meaning the items are modifiable by code that follows it. These are created by listing items inbetween square brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code>, seperated by commas.</p>
 <p><strong>Tuples</strong> are <strong>immutable</strong>, meaning the items cannot be changed later on. These are created by listing items inbetween round brackets, <code class="docutils literal notranslate"><span class="pre">()</span></code>, seperated by commas.</p>
-</div></blockquote>
+</div>
 <p>To access an individual item in a list, you call the list’s name and the item’s <strong>index</strong> (i.e., position) in the list by using the square brackets, <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
-<blockquote>
-<div><p><strong>Importantly, Python indexes from 0, meaning that the “first” item in a list is the “0th” item in the list according to python.</strong> In R, vectors are also indexed starting from 0, but data frames and matrices start from 1. That will be relevant later.</p>
-</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Python indexes from 0 (i.e., Python counts from 0), meaning that the “first” item in a list is the “0th” item in the list according to python.</strong> In R, everything except vectors are indexed from 1 instead. That will be relevant later.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists:</span>
@@ -735,9 +735,10 @@ Sabrina Carpenter is a musician
 </div>
 </div>
 <p>As seen above, the code will go through each <code class="docutils literal notranslate"><span class="pre">person</span></code> in the list called <code class="docutils literal notranslate"><span class="pre">powerpuff_girls</span></code> and print out their names with an added description.</p>
-<blockquote>
-<div><p>The convention for this syntax is to use the letter <strong>i</strong> as the index for the loop. This means that in the code above, the conventional way to write the loop is “for i in Powerpuff_Girls”. However, you can use whatever you want if it makes it easier to conceptualise what the loop is doing.</p>
-</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Loop Conventions</p>
+<p>The convention for this syntax is to use the letter <strong>i</strong> as the index for the loop. This means that in the code above, the conventional way to write the loop is “for i in Powerpuff_Girls”. However, you can use whatever you want if it makes it easier to conceptualise what the loop is doing.</p>
+</div>
 <p><strong>2. <em>while</em> Loops</strong></p>
 <p>While loops allow you to repeat a chunk of indented code <strong>while</strong> a condition is true. The syntax reads like “while A is true, do X”</p>
 <div class="cell docutils container">
@@ -846,9 +847,10 @@ To achieve a H1 in Personality &amp; Social Psychology, you need a minimum exam 
 </div>
 </div>
 </div>
-<blockquote>
-<div><p><strong>Global vs Local Variables:</strong> Variables that are defined inside a function are called <em>local variables</em>, and they only exist within the function they’re used in. <em>global variables</em> are variables created outside of any function, and are useable anywhere in the code. <strong>It is good practice to use local variables as much as possible, and only make global variables if necessary</strong></p>
-</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Global vs Local Variables</p>
+<p>Variables that are defined inside a function are called <em>local variables</em>, and they only exist within the function they’re used in. <em>global variables</em> are variables created outside of any function, and are useable anywhere in the code. <strong>It is good practice to use local variables as much as possible, and only make global variables if necessary</strong></p>
+</div>
 </section>
 </section>
 </section>
@@ -884,12 +886,12 @@ To achieve a H1 in Personality &amp; Social Psychology, you need a minimum exam 
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../gettingstarted/vscode.html"
+       href="../gettingstarted/chatgpt.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">1b. Visual Studio Code</p>
+        <p class="prev-next-title">1c. Learning Resources</p>
       </div>
     </a>
     <a class="right-next"
@@ -943,7 +945,7 @@ To achieve a H1 in Personality &amp; Social Psychology, you need a minimum exam 
   <div class="footer-item">
     
 <p class="component-author">
-By David Cui & Yubing Zhang
+By David Cui (Affective Neuroscience and Development Lab)
 </p>
 
   </div>

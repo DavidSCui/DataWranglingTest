@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2d. Jupyter Notebook &#8212; AND Lab Coding &amp; Data Wrangling</title>
+    <title>Advanced File Navigation &#8212; AND Lab Coding &amp; Data Wrangling</title>
   
   
   
@@ -57,11 +57,9 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'python/jupyter';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python/advanced';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2e. Python &amp; R" href="pythontoR.html" />
-    <link rel="prev" title="2c. Python, Pandas &amp; Excel" href="excel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +121,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -186,14 +186,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/chatgpt.html">1c. Learning Resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Data Wrangling</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="codingbasics.html">2a. Coding Fundamentals</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="pandas.html">2b. Data Wrangling 101</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="dfcommands.html">Extra: Pandas DataFrame Methods</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="excel.html">2c. Python, Pandas &amp; Excel</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">2d. Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter.html">2d. Jupyter Notebook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pythontoR.html">2e. Python &amp; R</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Miscellanious</span></p>
@@ -255,7 +255,7 @@
       
       
       
-      <li><a href="../_sources/python/jupyter.ipynb" target="_blank"
+      <li><a href="../_sources/python/advanced.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -337,11 +339,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>2d. Jupyter Notebook</h1>
+    <h1>Advanced File Navigation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#os-module">os module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-os-agnostic-file-paths">A. OS Agnostic File Paths</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -351,37 +364,30 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="d-jupyter-notebook">
-<h1>2d. Jupyter Notebook<a class="headerlink" href="#d-jupyter-notebook" title="Link to this heading">#</a></h1>
-<p>Jupyter Notebook is a powerful tool and extension for visualising data analysis. It is very similar to RStudio’s Markdown features, which you encounter throughout undergraduate and honours data analysis subjects.</p>
-<blockquote>
-<div><p>In fact, this is the tool used to create the documents you have been looking at.</p>
-</div></blockquote>
-<ol class="arabic simple">
-<li><p>To install it within VSCode, click the Extentions tab on the left side of the screen. (Same as when you installed the Python extension).</p></li>
+  <section id="advanced-file-navigation">
+<h1>Advanced File Navigation<a class="headerlink" href="#advanced-file-navigation" title="Link to this heading">#</a></h1>
+<p>For advanced file sorting and finding, you can employ the <code class="docutils literal notranslate"><span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">glob</span></code> modules.</p>
+<section id="os-module">
+<h2>os module<a class="headerlink" href="#os-module" title="Link to this heading">#</a></h2>
+<section id="a-os-agnostic-file-paths">
+<h3>A. OS Agnostic File Paths<a class="headerlink" href="#a-os-agnostic-file-paths" title="Link to this heading">#</a></h3>
+<p>To address the problem of Mac/Linux and Windows using different filepath conventions, we can use <code class="docutils literal notranslate"><span class="pre">os.path.join</span></code>.</p>
+<ol class="arabic">
+<li><p>Importing the module:</p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">os</span></code></p>
+</li>
+<li><p>Specifying the folder/directory that the file is in within a variable:</p>
+<p><code class="docutils literal notranslate"><span class="pre">filepath</span> <span class="pre">=</span> <span class="pre">&quot;/user/code&quot;</span></code></p>
+</li>
+<li><p>Specifying the filename within a variable:</p>
+<p><code class="docutils literal notranslate"><span class="pre">filename</span> <span class="pre">=</span> <span class="pre">&quot;data.csv</span></code></p>
+</li>
+<li><p>Create the new filepath by combining the two variables:</p>
+<p><code class="docutils literal notranslate"><span class="pre">full_path</span> <span class="pre">=</span> <span class="pre">os.path.join(base_dir,</span> <span class="pre">filename)</span></code></p>
+</li>
 </ol>
-<ol class="arabic simple" start="2">
-<li><p>When prompted, search up “Jupyter”. Click on the main Extension (Jupyter) and install it. Also install each of the extensions in the extension pack that shows up. All 5 extensions should show up as the first five extensions you see when you search it up.</p></li>
-</ol>
-<blockquote>
-<div><p>You may have to restart VSCode to activate the extension.</p>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li><p>Now, create a new file making sure you end the filename with <strong>.ipynb</strong>. For example, we’ll call ours “analysis.ipynb”.</p></li>
-</ol>
-<blockquote>
-<div><p>Remember, you can do this by right clicking on a folder back in the “Explorer” tab (top-right of the window), then clicking “New File”.</p>
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li><p>When opening your new file, you can create a new code or new markdown block. Press “+ Code” and make sure to select “Python” in the bottom right of the code block (sometimes it will automatically detect that you are trying to write in Python).</p></li>
-</ol>
-<blockquote>
-<div><p>Markdown is a language used to tell the computer how to render plain text, and is the language this entire guide is being written in.</p>
-</div></blockquote>
-<ol class="arabic simple" start="5">
-<li><p>You can now use this block to write in Python. Your main controls are also in the top left panel of the VSCode view of the file.</p></li>
-</ol>
-<p>Crucially, you can use Jupyter to visualise DataFrames within VSCode without constantly having to export to CSV to view in Excel. In your main controls OR at the bottom of the screen, you can view the variables that exist in your file (<strong>Jupyter Variables</strong> in the main controls, <strong>Jupyter</strong> at the bottom of the screen). From here, you can double click the variable or click the icon to the left of the variable’s name to open a window that visualises the data.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -414,30 +420,30 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="excel.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">2c. Python, Pandas &amp; Excel</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="pythontoR.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2e. Python &amp; R</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#os-module">os module</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-os-agnostic-file-paths">A. OS Agnostic File Paths</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
