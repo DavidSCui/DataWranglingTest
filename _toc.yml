@@ -8,8 +8,7 @@ parts:
     chapters:
     - file: gettingstarted/prereq
     - file: gettingstarted/vscode
-      sections:
-      - file: path/to/part1/chapter2/section1
+    - file: gettingstarted/chatgpt
   - caption: "2. Data Wrangling"
     chapters:
     - file: python/codingbasics
@@ -18,13 +17,13 @@ parts:
       - file: python/dfcommands
     - file: python/excel
     - file: python/jupyter
-    - file: python/R
+    - file: python/pythontoR
   - caption: "3. Miscellanious"
     chapters:
     - file: other/bash
     - file: other/github
     - file: other/spartan
-    - file: other/chatgpt
+
 
 
     

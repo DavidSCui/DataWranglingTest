@@ -1,8 +1,8 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Data Wrangling 101 AND Lab
-author: David Cui & Yubing Zhang
+title: AND Lab Coding & Data Wrangling
+author: David Cui (Affective Neuroscience and Development Lab)
 logo: logo.png
 copyright: "© 2025 University of Melbourne. All Rights Reserved"
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2b. Data Wrangling 101 &#8212; Data Wrangling 101 AND Lab</title>
+    <title>2b. Data Wrangling 101 &#8212; AND Lab Coding &amp; Data Wrangling</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Wrangling 101 AND Lab - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Wrangling 101 AND Lab - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AND Lab Coding & Data Wrangling - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="AND Lab Coding & Data Wrangling - Home"/>`);</script>
   
   
 </a></div>
@@ -182,9 +182,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/prereq.html">1a. Prerequisites</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/chatgpt.html">1c. Learning Resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Data Wrangling</span></p>
 <ul class="current nav bd-sidenav">
@@ -195,14 +194,13 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="excel.html">2c. Python, Pandas &amp; Excel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyter.html">2d. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="R.html">2e. Python &amp; R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pythontoR.html">2e. Python &amp; R</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Miscellanious</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../other/bash.html">3a. Basic Shell (Bash/Zsh/Cmd)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/github.html">3b. Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/spartan.html">3c. Spartan (HPC)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../other/chatgpt.html">3d. ChatGPT &amp; Other AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/github.html">3b. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../other/spartan.html">3c. Spartan (UoM HPC)</a></li>
 </ul>
 
     </div>
@@ -353,10 +351,17 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-libraries">Modules &amp; Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-pandas">Introduction to Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-selecting-rows-and-columns"><strong>A. Selecting Rows and Columns</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-filtering-dropping"><strong>B. Filtering &amp; Dropping</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-creating-new-rows-columns"><strong>C. Creating New Rows/Columns</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-missing-data"><strong>D. Missing Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-selecting-rows-and-columns">A. Selecting Rows and Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-filtering-dropping">B. Filtering &amp; Dropping</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isin">isin()</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-creating-new-rows-columns">C. Creating New Rows/Columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-columns">New Columns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-rows">New Rows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-missing-data">D. Missing Data</a></li>
 </ul>
 </li>
 </ul>
@@ -375,13 +380,14 @@ document.write(`
 <p>On to the spaghetti and meatballs of what we’re trying to do.</p>
 <section id="modules-libraries">
 <h2>Modules &amp; Libraries<a class="headerlink" href="#modules-libraries" title="Link to this heading">#</a></h2>
-<blockquote>
-<div><p>One of the things that make Python and R very powerful languages are the abundance of existing resources you can draw upon.</p>
-</div></blockquote>
+<p>One of the things that make Python and R very powerful languages are the abundance of existing resources you can draw upon.</p>
+<div class="info admonition">
+<p class="admonition-title">Modules vs Libraries</p>
 <ul class="simple">
 <li><p><strong>Modules</strong> are python files that act as pre-existing code that you can call upon. (You can make your own and use them later if you’re going to be using the same functions over many different files.)</p></li>
 <li><p><strong>Libraries</strong> are collections of modules made by professional nerds that let you do really cool things with pretty little effort.</p></li>
 </ul>
+</div>
 </section>
 <section id="introduction-to-pandas">
 <h2>Introduction to Pandas<a class="headerlink" href="#introduction-to-pandas" title="Link to this heading">#</a></h2>
@@ -439,125 +445,132 @@ document.write(`
 </div>
 </div>
 </div>
-<blockquote>
-<div><p>As usual, you can call your DataFrame variable whatever you want. Though conventionally, people will be lazy and use “df” (for DataFrame), if they’re only using one main dataframe, such as in RMHI or ADDA.</p>
-</div></blockquote>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you want to play around with this data to try some coding and follow along, click copy on the top right of the code panel and paste it into a python file in</p>
+</div>
+<div class="info admonition">
+<p class="admonition-title">DataFrame Naming Convention</p>
+<p>As usual, you can call your DataFrame variable whatever you want. Though conventionally, people will be lazy and use “df” (for DataFrame), if they’re only using one main dataframe, such as in RMHI or ADDA.</p>
+</div>
 <p>As you may be able to tell, this is a table (a DataFrame, if you will) with nine teen dystopia novels from the 2010s. Feel free to copy and paste that chunk of code above into a python file to following along with the examples.</p>
 <hr class="docutils" />
 <p>In a usual tutorial you spend the next 30 minutes going through each of the ways you can manipulate this DataFrame. The <a class="reference internal" href="dfcommands.html"><span class="std std-doc">next page</span></a> has a big table of methods (“commands”) that you can apply to DataFrames. Alternatively, click the text below to open up the table on this page.</p>
-<details><summary><b>TABLE: MANIPULATING DATAFRAMES</b></summary>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Table: Manipulating Dataframes</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p><strong>Action</strong></p></th>
-<th class="head"><p><strong>Syntax</strong></p></th>
-<th class="head"><p><strong>Example</strong></p></th>
+<tr class="row-odd"><th class="head"><p class="sd-card-text"><strong>Action</strong></p></th>
+<th class="head"><p class="sd-card-text"><strong>Syntax</strong></p></th>
+<th class="head"><p class="sd-card-text"><strong>Example</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>Selecting Columns</strong></p></td>
-<td><p>Select a column by name: <code class="docutils literal notranslate"><span class="pre">df['ColumnName']</span></code><br> Select multiple columns: <code class="docutils literal notranslate"><span class="pre">df[['Column1',</span> <span class="pre">'Column2']]</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Title']</span></code><br> <code class="docutils literal notranslate"><span class="pre">df[['Title',</span> <span class="pre">'Sales']]</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Selecting Columns</strong></p></td>
+<td><p class="sd-card-text">Select a column by name: <code class="docutils literal notranslate"><span class="pre">df['ColumnName']</span></code><br> Select multiple columns: <code class="docutils literal notranslate"><span class="pre">df[['Column1',</span> <span class="pre">'Column2']]</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Title']</span></code><br> <code class="docutils literal notranslate"><span class="pre">df[['Title',</span> <span class="pre">'Sales']]</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Selecting Rows by Index</strong></p></td>
-<td><p>Use <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> for positional indexing: <code class="docutils literal notranslate"><span class="pre">df.iloc[0]</span></code><br> Slice rows: <code class="docutils literal notranslate"><span class="pre">df.iloc[1:3]</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df.iloc[0]</span></code><br> <code class="docutils literal notranslate"><span class="pre">df.iloc[1:3]</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Selecting Rows by Index</strong></p></td>
+<td><p class="sd-card-text">Use <code class="docutils literal notranslate"><span class="pre">iloc[]</span></code> for positional indexing: <code class="docutils literal notranslate"><span class="pre">df.iloc[0]</span></code><br> Slice rows: <code class="docutils literal notranslate"><span class="pre">df.iloc[1:3]</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df.iloc[0]</span></code><br> <code class="docutils literal notranslate"><span class="pre">df.iloc[1:3]</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Filtering Rows by Condition</strong></p></td>
-<td><p>Apply condition inside <code class="docutils literal notranslate"><span class="pre">df[]</span></code>: <code class="docutils literal notranslate"><span class="pre">df[df['Column']</span> <span class="pre">&gt;</span> <span class="pre">value]</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df[df['Sales']</span> <span class="pre">&gt;</span> <span class="pre">10000000]</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Filtering Rows by Condition</strong></p></td>
+<td><p class="sd-card-text">Apply condition inside <code class="docutils literal notranslate"><span class="pre">df[]</span></code>: <code class="docutils literal notranslate"><span class="pre">df[df['Column']</span> <span class="pre">&gt;</span> <span class="pre">value]</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df[df['Sales']</span> <span class="pre">&gt;</span> <span class="pre">10000000]</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Multiple Conditions</strong></p></td>
-<td><p>Use logical operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> for AND, straight line for OR: <code class="docutils literal notranslate"><span class="pre">df[(condition1)</span> <span class="pre">&amp;</span> <span class="pre">(condition2)]</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df[(df['Sales']</span> <span class="pre">&gt;</span> <span class="pre">10000000)</span> <span class="pre">&amp;</span> <span class="pre">(df['Author']</span> <span class="pre">==</span> <span class="pre">'Suzanne</span> <span class="pre">Collins')]</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Multiple Conditions</strong></p></td>
+<td><p class="sd-card-text">Use logical operators <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> for AND, straight line for OR: <code class="docutils literal notranslate"><span class="pre">df[(condition1)</span> <span class="pre">&amp;</span> <span class="pre">(condition2)]</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df[(df['Sales']</span> <span class="pre">&gt;</span> <span class="pre">10000000)</span> <span class="pre">&amp;</span> <span class="pre">(df['Author']</span> <span class="pre">==</span> <span class="pre">'Suzanne</span> <span class="pre">Collins')]</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Adding a New Column</strong></p></td>
-<td><p>Assign a value to a new column: <code class="docutils literal notranslate"><span class="pre">df['NewColumn']</span> <span class="pre">=</span> <span class="pre">value</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Discounted</span> <span class="pre">Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales']</span> <span class="pre">*</span> <span class="pre">0.9</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Adding a New Column</strong></p></td>
+<td><p class="sd-card-text">Assign a value to a new column: <code class="docutils literal notranslate"><span class="pre">df['NewColumn']</span> <span class="pre">=</span> <span class="pre">value</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Discounted</span> <span class="pre">Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales']</span> <span class="pre">*</span> <span class="pre">0.9</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Modifying an Existing Column</strong></p></td>
-<td><p>Modify an existing column: <code class="docutils literal notranslate"><span class="pre">df['ColumnName']</span> <span class="pre">=</span> <span class="pre">new_value</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales']</span> <span class="pre">*</span> <span class="pre">1.1</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Modifying an Existing Column</strong></p></td>
+<td><p class="sd-card-text">Modify an existing column: <code class="docutils literal notranslate"><span class="pre">df['ColumnName']</span> <span class="pre">=</span> <span class="pre">new_value</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales']</span> <span class="pre">*</span> <span class="pre">1.1</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Adding a New Row</strong></p></td>
-<td><p>Concatenate a new DataFrame with existing one: <code class="docutils literal notranslate"><span class="pre">pd.concat([df,</span> <span class="pre">new_row])</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">new_row</span> <span class="pre">=</span> <span class="pre">pd.DataFrame([{'Title':</span> <span class="pre">'New</span> <span class="pre">Book',</span> <span class="pre">'Release</span> <span class="pre">Year':</span> <span class="pre">2023,</span> <span class="pre">'Sales':</span> <span class="pre">5000000,</span> <span class="pre">'Adapted</span> <span class="pre">into</span> <span class="pre">Movie':</span> <span class="pre">False}])</span></code><br> <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.concat([df,</span> <span class="pre">new_row],</span> <span class="pre">ignore_index=True)</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Adding a New Row</strong></p></td>
+<td><p class="sd-card-text">Concatenate a new DataFrame with existing one: <code class="docutils literal notranslate"><span class="pre">pd.concat([df,</span> <span class="pre">new_row])</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">new_row</span> <span class="pre">=</span> <span class="pre">pd.DataFrame([{'Title':</span> <span class="pre">'New</span> <span class="pre">Book',</span> <span class="pre">'Release</span> <span class="pre">Year':</span> <span class="pre">2023,</span> <span class="pre">'Sales':</span> <span class="pre">5000000,</span> <span class="pre">'Adapted</span> <span class="pre">into</span> <span class="pre">Movie':</span> <span class="pre">False}])</span></code><br> <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.concat([df,</span> <span class="pre">new_row],</span> <span class="pre">ignore_index=True)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Inserting a Column at a Position</strong></p></td>
-<td><p>Use <code class="docutils literal notranslate"><span class="pre">insert()</span></code> to add a column at a specific position: <code class="docutils literal notranslate"><span class="pre">df.insert(index,</span> <span class="pre">'ColumnName',</span> <span class="pre">value)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df.insert(2,</span> <span class="pre">'Release</span> <span class="pre">Decade',</span> <span class="pre">['2000s',</span> <span class="pre">'2000s',</span> <span class="pre">'2010s',</span> <span class="pre">'2010s',</span> <span class="pre">'2010s'])</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Inserting a Column at a Position</strong></p></td>
+<td><p class="sd-card-text">Use <code class="docutils literal notranslate"><span class="pre">insert()</span></code> to add a column at a specific position: <code class="docutils literal notranslate"><span class="pre">df.insert(index,</span> <span class="pre">'ColumnName',</span> <span class="pre">value)</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df.insert(2,</span> <span class="pre">'Release</span> <span class="pre">Decade',</span> <span class="pre">['2000s',</span> <span class="pre">'2000s',</span> <span class="pre">'2010s',</span> <span class="pre">'2010s',</span> <span class="pre">'2010s'])</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Dropping a Column</strong></p></td>
-<td><p>Drop a column using <code class="docutils literal notranslate"><span class="pre">drop()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.drop('ColumnName',</span> <span class="pre">axis=1)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.drop('Discounted</span> <span class="pre">Sales',</span> <span class="pre">axis=1)</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Dropping a Column</strong></p></td>
+<td><p class="sd-card-text">Drop a column using <code class="docutils literal notranslate"><span class="pre">drop()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.drop('ColumnName',</span> <span class="pre">axis=1)</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.drop('Discounted</span> <span class="pre">Sales',</span> <span class="pre">axis=1)</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Dropping Rows by Index</strong></p></td>
-<td><p>Drop rows by index using <code class="docutils literal notranslate"><span class="pre">drop()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.drop(index=[0,</span> <span class="pre">1])</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.drop(index=[0,</span> <span class="pre">1])</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Dropping Rows by Index</strong></p></td>
+<td><p class="sd-card-text">Drop rows by index using <code class="docutils literal notranslate"><span class="pre">drop()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.drop(index=[0,</span> <span class="pre">1])</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.drop(index=[0,</span> <span class="pre">1])</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Dropping Rows by Condition</strong></p></td>
-<td><p>Drop rows based on a condition: <code class="docutils literal notranslate"><span class="pre">df[df['Column']</span> <span class="pre">&gt;</span> <span class="pre">value]</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df[df['Sales']</span> <span class="pre">&gt;</span> <span class="pre">10000000]</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Dropping Rows by Condition</strong></p></td>
+<td><p class="sd-card-text">Drop rows based on a condition: <code class="docutils literal notranslate"><span class="pre">df[df['Column']</span> <span class="pre">&gt;</span> <span class="pre">value]</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df[df['Sales']</span> <span class="pre">&gt;</span> <span class="pre">10000000]</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Sorting Data</strong></p></td>
-<td><p>Sort values using <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.sort_values('ColumnName',</span> <span class="pre">ascending=True)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df_sorted</span> <span class="pre">=</span> <span class="pre">df.sort_values('Sales',</span> <span class="pre">ascending=False)</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Sorting Data</strong></p></td>
+<td><p class="sd-card-text">Sort values using <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.sort_values('ColumnName',</span> <span class="pre">ascending=True)</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df_sorted</span> <span class="pre">=</span> <span class="pre">df.sort_values('Sales',</span> <span class="pre">ascending=False)</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Sorting by Multiple Columns</strong></p></td>
-<td><p>Sort by multiple columns: <code class="docutils literal notranslate"><span class="pre">df.sort_values(['Column1',</span> <span class="pre">'Column2'],</span> <span class="pre">ascending=[True,</span> <span class="pre">False])</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df_sorted</span> <span class="pre">=</span> <span class="pre">df.sort_values(['Author',</span> <span class="pre">'Sales'],</span> <span class="pre">ascending=[True,</span> <span class="pre">False])</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Sorting by Multiple Columns</strong></p></td>
+<td><p class="sd-card-text">Sort by multiple columns: <code class="docutils literal notranslate"><span class="pre">df.sort_values(['Column1',</span> <span class="pre">'Column2'],</span> <span class="pre">ascending=[True,</span> <span class="pre">False])</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df_sorted</span> <span class="pre">=</span> <span class="pre">df.sort_values(['Author',</span> <span class="pre">'Sales'],</span> <span class="pre">ascending=[True,</span> <span class="pre">False])</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Grouping and Aggregating</strong></p></td>
-<td><p>Group by one or more columns: <code class="docutils literal notranslate"><span class="pre">df.groupby('Column')['Aggregation']</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df.groupby('Author')['Sales'].sum()</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Grouping and Aggregating</strong></p></td>
+<td><p class="sd-card-text">Group by one or more columns: <code class="docutils literal notranslate"><span class="pre">df.groupby('Column')['Aggregation']</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df.groupby('Author')['Sales'].sum()</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Multiple Aggregations</strong></p></td>
-<td><p>Apply multiple aggregation functions: <code class="docutils literal notranslate"><span class="pre">df.groupby('Column').agg({'Column1':</span> <span class="pre">'sum',</span> <span class="pre">'Column2':</span> <span class="pre">'count'})</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df.groupby('Author').agg({'Sales':</span> <span class="pre">'sum',</span> <span class="pre">'Title':</span> <span class="pre">'count'})</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Multiple Aggregations</strong></p></td>
+<td><p class="sd-card-text">Apply multiple aggregation functions: <code class="docutils literal notranslate"><span class="pre">df.groupby('Column').agg({'Column1':</span> <span class="pre">'sum',</span> <span class="pre">'Column2':</span> <span class="pre">'count'})</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df.groupby('Author').agg({'Sales':</span> <span class="pre">'sum',</span> <span class="pre">'Title':</span> <span class="pre">'count'})</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Identifying Missing Data</strong></p></td>
-<td><p>Check for missing values with <code class="docutils literal notranslate"><span class="pre">isnull()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Identifying Missing Data</strong></p></td>
+<td><p class="sd-card-text">Check for missing values with <code class="docutils literal notranslate"><span class="pre">isnull()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Count Missing Data</strong></p></td>
-<td><p>Count missing values with <code class="docutils literal notranslate"><span class="pre">sum()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Count Missing Data</strong></p></td>
+<td><p class="sd-card-text">Count missing values with <code class="docutils literal notranslate"><span class="pre">sum()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Drop Rows with Missing Data</strong></p></td>
-<td><p>Drop rows containing NaN with <code class="docutils literal notranslate"><span class="pre">dropna()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.dropna()</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Drop Rows with Missing Data</strong></p></td>
+<td><p class="sd-card-text">Drop rows containing NaN with <code class="docutils literal notranslate"><span class="pre">dropna()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.dropna()</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Fill Missing Data</strong></p></td>
-<td><p>Fill missing values with <code class="docutils literal notranslate"><span class="pre">fillna()</span></code>: <code class="docutils literal notranslate"><span class="pre">df['Column'].fillna(value)</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales'].fillna(df['Sales'].mean())</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Fill Missing Data</strong></p></td>
+<td><p class="sd-card-text">Fill missing values with <code class="docutils literal notranslate"><span class="pre">fillna()</span></code>: <code class="docutils literal notranslate"><span class="pre">df['Column'].fillna(value)</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales'].fillna(df['Sales'].mean())</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Merging DataFrames</strong></p></td>
-<td><p>Merge two DataFrames using <code class="docutils literal notranslate"><span class="pre">merge()</span></code>: <code class="docutils literal notranslate"><span class="pre">pd.merge(df1,</span> <span class="pre">df2,</span> <span class="pre">on='Column')</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">merged_df</span> <span class="pre">=</span> <span class="pre">pd.merge(df1,</span> <span class="pre">df2,</span> <span class="pre">on='ID')</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Merging DataFrames</strong></p></td>
+<td><p class="sd-card-text">Merge two DataFrames using <code class="docutils literal notranslate"><span class="pre">merge()</span></code>: <code class="docutils literal notranslate"><span class="pre">pd.merge(df1,</span> <span class="pre">df2,</span> <span class="pre">on='Column')</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">merged_df</span> <span class="pre">=</span> <span class="pre">pd.merge(df1,</span> <span class="pre">df2,</span> <span class="pre">on='ID')</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Renaming Columns</strong></p></td>
-<td><p>Rename columns with <code class="docutils literal notranslate"><span class="pre">rename()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.rename(columns={'OldName':</span> <span class="pre">'NewName'})</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.rename(columns={'Sales':</span> <span class="pre">'Total</span> <span class="pre">Sales',</span> <span class="pre">'Release</span> <span class="pre">Year':</span> <span class="pre">'Year</span> <span class="pre">Released'})</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Renaming Columns</strong></p></td>
+<td><p class="sd-card-text">Rename columns with <code class="docutils literal notranslate"><span class="pre">rename()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.rename(columns={'OldName':</span> <span class="pre">'NewName'})</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.rename(columns={'Sales':</span> <span class="pre">'Total</span> <span class="pre">Sales',</span> <span class="pre">'Release</span> <span class="pre">Year':</span> <span class="pre">'Year</span> <span class="pre">Released'})</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Converting to Datetime</strong></p></td>
-<td><p>Convert a column to datetime: <code class="docutils literal notranslate"><span class="pre">pd.to_datetime(df['Column'])</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Release</span> <span class="pre">Year']</span> <span class="pre">=</span> <span class="pre">pd.to_datetime(df['Release</span> <span class="pre">Year'],</span> <span class="pre">format='%Y')</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Converting to Datetime</strong></p></td>
+<td><p class="sd-card-text">Convert a column to datetime: <code class="docutils literal notranslate"><span class="pre">pd.to_datetime(df['Column'])</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Release</span> <span class="pre">Year']</span> <span class="pre">=</span> <span class="pre">pd.to_datetime(df['Release</span> <span class="pre">Year'],</span> <span class="pre">format='%Y')</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p><strong>Extracting Date Components</strong></p></td>
-<td><p>Extract year, month, day: <code class="docutils literal notranslate"><span class="pre">df['Date'].dt.year</span></code><br> <code class="docutils literal notranslate"><span class="pre">df['Date'].dt.month</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Year']</span> <span class="pre">=</span> <span class="pre">df['Release</span> <span class="pre">Year'].dt.year</span></code><br> <code class="docutils literal notranslate"><span class="pre">df['Month']</span> <span class="pre">=</span> <span class="pre">df['Release</span> <span class="pre">Year'].dt.month</span></code></p></td>
+<tr class="row-even"><td><p class="sd-card-text"><strong>Extracting Date Components</strong></p></td>
+<td><p class="sd-card-text">Extract year, month, day: <code class="docutils literal notranslate"><span class="pre">df['Date'].dt.year</span></code><br> <code class="docutils literal notranslate"><span class="pre">df['Date'].dt.month</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Year']</span> <span class="pre">=</span> <span class="pre">df['Release</span> <span class="pre">Year'].dt.year</span></code><br> <code class="docutils literal notranslate"><span class="pre">df['Month']</span> <span class="pre">=</span> <span class="pre">df['Release</span> <span class="pre">Year'].dt.month</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>Applying Functions</strong></p></td>
-<td><p>Apply a custom function to a column with <code class="docutils literal notranslate"><span class="pre">apply()</span></code>: <code class="docutils literal notranslate"><span class="pre">df['Column'].apply(lambda</span> <span class="pre">x:</span> <span class="pre">function(x))</span></code></p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales'].apply(lambda</span> <span class="pre">x:</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">1.05)</span></code></p></td>
+<tr class="row-odd"><td><p class="sd-card-text"><strong>Applying Functions</strong></p></td>
+<td><p class="sd-card-text">Apply a custom function to a column with <code class="docutils literal notranslate"><span class="pre">apply()</span></code>: <code class="docutils literal notranslate"><span class="pre">df['Column'].apply(lambda</span> <span class="pre">x:</span> <span class="pre">function(x))</span></code></p></td>
+<td><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales'].apply(lambda</span> <span class="pre">x:</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">1.05)</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</details>
-<p><break> </break></p>
+</div>
+</details><p><break> </break></p>
 <p>You can come back to this later when you need it. For now, lets highlight the stuff you’ll most likely use</p>
 <section id="a-selecting-rows-and-columns">
-<h3><strong>A. Selecting Rows and Columns</strong><a class="headerlink" href="#a-selecting-rows-and-columns" title="Link to this heading">#</a></h3>
+<h3>A. Selecting Rows and Columns<a class="headerlink" href="#a-selecting-rows-and-columns" title="Link to this heading">#</a></h3>
 <p>For columns, you call the DataFrame’s name and type in the name of the column you want to select <strong>within quotation marks</strong> and <strong>within square brackets</strong> adjacent to the DataFrames name. To select multiple columns, you need to use <em>two</em> sets of square brackets, since this show pandas that you are inputing a <em>list</em> of column names</p>
 <p>For rows, you call the DataFrame’s name and type in .iloc (<em><strong>i</strong></em>nteger <em><strong>loc</strong></em>ation) and <strong>then within square brackets</strong>, the <strong>index</strong> (remembering that the “1st” row is actually the “0th” row). To select multiple rows, you can use a colon <code class="docutils literal notranslate"><span class="pre">:</span></code> in between two numbers to specify a range of rows to select.</p>
 <p><strong>However, in most of Python the end index is <em>exclusive</em>, meaning that <code class="docutils literal notranslate"><span class="pre">[0:4]</span></code> will <em>not include</em> the 4th row.</strong> This is different to R, in which the end index is <em>inclusive</em> (meaning that in R, the 4th row would be included).</p>
@@ -590,17 +603,18 @@ document.write(`
 </div>
 </div>
 </div>
-<blockquote>
-<div><p>You may have noticed that we seem to randomely use square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, round brackets <code class="docutils literal notranslate"><span class="pre">()</span></code> and periods <code class="docutils literal notranslate"><span class="pre">.</span></code> to do things, but now is a good time to establish how they are generally used in Python.</p>
+<div class="tip admonition">
+<p class="admonition-title">Brackets and Periods Convention</p>
+<p>You may have noticed that we seem to randomely use square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>, round brackets <code class="docutils literal notranslate"><span class="pre">()</span></code> and periods <code class="docutils literal notranslate"><span class="pre">.</span></code> to do things, but now is a good time to establish how they are generally used in Python.</p>
 <ul class="simple">
 <li><p><strong>Square Brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code></strong> are used to select elements of variables with multiple items, like lists, tuples, strings (letters) and DataFrames. This is usually done by indexing <code class="docutils literal notranslate"><span class="pre">[0:2]</span></code> or through conditional statements <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">&gt;</span> <span class="pre">10]</span></code>.</p></li>
 <li><p><strong>Round Brackets <code class="docutils literal notranslate"><span class="pre">()</span></code></strong> are used to call functions or methods - essentially, they activate commands to do things.</p></li>
 <li><p><strong>Periods <code class="docutils literal notranslate"><span class="pre">.</span></code></strong> are used to access properties or execute actions within variables, such as the “iloc” command for DataFrames.</p></li>
 </ul>
-</div></blockquote>
+</div>
 </section>
 <section id="b-filtering-dropping">
-<h3><strong>B. Filtering &amp; Dropping</strong><a class="headerlink" href="#b-filtering-dropping" title="Link to this heading">#</a></h3>
+<h3>B. Filtering &amp; Dropping<a class="headerlink" href="#b-filtering-dropping" title="Link to this heading">#</a></h3>
 <p>You can filter rows using conditions using the following syntax in this example below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -655,6 +669,8 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="isin">
+<h4>isin()<a class="headerlink" href="#isin" title="Link to this heading">#</a></h4>
 <p>A really handy command to know is pandas’ <code class="docutils literal notranslate"><span class="pre">isin()</span></code> method. This can be used to select/filter rows by checking it is within a <strong>list</strong> of values, which is useful when you need to sort data by multiple specific conditions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -680,11 +696,26 @@ document.write(`
 </div>
 </div>
 </section>
+</section>
 <section id="c-creating-new-rows-columns">
-<h3><strong>C. Creating New Rows/Columns</strong><a class="headerlink" href="#c-creating-new-rows-columns" title="Link to this heading">#</a></h3>
+<h3>C. Creating New Rows/Columns<a class="headerlink" href="#c-creating-new-rows-columns" title="Link to this heading">#</a></h3>
+<p>You may need to make new rows and columns as part of what you’re doing - maybe to combine columns from other tables or add new entries.</p>
+<section id="new-columns">
+<h4>New Columns<a class="headerlink" href="#new-columns" title="Link to this heading">#</a></h4>
+<p>To add new columns, you pretty much tell the computer <em>“this is now a column in this dataframe, which takes the following values”</em>. The syntax for this is seen below - values are given in the order that the items on the table are in.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The new column you have introduced <strong>must</strong> have the same amount of rows as the existing table. For instance, since there are 9 books here, my new column must have 9 values.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In practice, you may be extracting a column from another table. For this, you would be directly setting a column in your table as a column from another table. For example, <code class="docutils literal notranslate"><span class="pre">df[&quot;Amazon</span> <span class="pre">Rating&quot;]</span> <span class="pre">=</span> <span class="pre">df2[&quot;Ratings&quot;]</span></code>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Amazon Rating&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amazon_ratings</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">]</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;Amazon Rating&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amazon_ratings</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -716,11 +747,26 @@ document.write(`
 </div>
 </div>
 </div>
-<p>There are a couple of ways of adding new rows</p>
+</section>
+<section id="new-rows">
+<h4>New Rows<a class="headerlink" href="#new-rows" title="Link to this heading">#</a></h4>
+<p>There are two ways of adding a new rows to a table.</p>
+<ul class="simple">
+<li><p>Method 1 involves is similar to how we added columns in the example above - you are basically telling the computer that <em>“this is a row now. here’s what the values are”</em>, where the values are given in same order that the columns show up in the table. This is good for quickly adding new row.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The bit of code, <code class="docutils literal notranslate"><span class="pre">[len(df)]</span></code> is a command that will spit out the <strong>len</strong>gth of the dataframe (actually, the series, so pretty much how many rows) as a numerical value. Because Python is end-index exclusive, the number that pops out is actually +1 above the amount of rows, so by making a new row at this number, you are adding a new row.</p>
+</div>
+<ul class="simple">
+<li><p>Method 2 is <strong>recommended</strong> because it is more scalable. Here, the new row is its own dictionary variable with the appropriate keys (columns) and values. Then, using the <code class="docutils literal notranslate"><span class="pre">pd.concat</span></code> command (method), the computer slaps the new row into the table with the syntax seen below.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sunrise on the Reaping&quot;</span><span class="p">,</span> <span class="mi">2025</span><span class="p">,</span> <span class="s2">&quot;Suzanne Collins&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Sunrise on the Reaping&quot;</span><span class="p">,</span> <span class="mi">2025</span><span class="p">,</span> <span class="s2">&quot;Suzanne Collins&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 
+<span class="c1"># Method 2</span>
 <span class="n">new_book</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;Title&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;The Ballad of Songbirds and Snakes&quot;</span><span class="p">],</span>
     <span class="s2">&quot;Release Year&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2020</span><span class="p">],</span>
@@ -730,7 +776,6 @@ document.write(`
     <span class="s2">&quot;Amazon Rating&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.6</span><span class="p">]</span>
 <span class="p">})</span>
 
-<span class="c1"># Concatenate with the existing DataFrame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">new_book</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -765,15 +810,45 @@ document.write(`
 10   3000000                True            4.6  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/y3/76c9zs013lvd86l2m8d2qq380000gn/T/ipykernel_34124/3314418627.py:1: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/y3/76c9zs013lvd86l2m8d2qq380000gn/T/ipykernel_74690/446957864.py:2: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
   df.loc[len(df)] = [&quot;Sunrise on the Reaping&quot;, 2025, &quot;Suzanne Collins&quot;, None, False, None]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
+</section>
 <section id="d-missing-data">
-<h3><strong>D. Missing Data</strong><a class="headerlink" href="#d-missing-data" title="Link to this heading">#</a></h3>
+<h3>D. Missing Data<a class="headerlink" href="#d-missing-data" title="Link to this heading">#</a></h3>
+<p>Dealing with missing data is relatively simply in pandas; there are a few things you can do listed below (adapted from the full table on the next page):</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Action</strong></p></th>
+<th class="head"><p><strong>Syntax</strong></p></th>
+<th class="head"><p><strong>Example</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Identifying Missing Data</strong></p></td>
+<td><p>Check for missing values with <code class="docutils literal notranslate"><span class="pre">isnull()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.isnull()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Count Missing Data</strong></p></td>
+<td><p>Count missing values with <code class="docutils literal notranslate"><span class="pre">sum()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Drop Rows with Missing Data</strong></p></td>
+<td><p>Drop rows containing NaN with <code class="docutils literal notranslate"><span class="pre">dropna()</span></code>: <code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">df.dropna()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fill Missing Data</strong></p></td>
+<td><p>Fill missing values with <code class="docutils literal notranslate"><span class="pre">fillna()</span></code>: <code class="docutils literal notranslate"><span class="pre">df['Column'].fillna(value)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">df['Sales']</span> <span class="pre">=</span> <span class="pre">df['Sales'].fillna(df['Sales'].mean())</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
@@ -884,10 +959,17 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-libraries">Modules &amp; Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-pandas">Introduction to Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-selecting-rows-and-columns"><strong>A. Selecting Rows and Columns</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-filtering-dropping"><strong>B. Filtering &amp; Dropping</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-creating-new-rows-columns"><strong>C. Creating New Rows/Columns</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-missing-data"><strong>D. Missing Data</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-selecting-rows-and-columns">A. Selecting Rows and Columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-filtering-dropping">B. Filtering &amp; Dropping</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isin">isin()</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-creating-new-rows-columns">C. Creating New Rows/Columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-columns">New Columns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#new-rows">New Rows</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-missing-data">D. Missing Data</a></li>
 </ul>
 </li>
 </ul>
@@ -904,7 +986,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By David Cui & Yubing Zhang
+By David Cui (Affective Neuroscience and Development Lab)
 </p>
 
   </div>

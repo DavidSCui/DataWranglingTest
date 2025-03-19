@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3a. Basic Shell (Bash/Zsh/Cmd) &#8212; Data Wrangling 101 AND Lab</title>
+    <title>3a. Basic Shell (Bash/Zsh/Cmd) &#8212; AND Lab Coding &amp; Data Wrangling</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'other/bash';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3b. Github" href="github.html" />
-    <link rel="prev" title="2e. Python &amp; R" href="../python/R.html" />
+    <link rel="next" title="3b. GitHub" href="github.html" />
+    <link rel="prev" title="2e. Python &amp; R" href="../python/pythontoR.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Wrangling 101 AND Lab - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Wrangling 101 AND Lab - Home"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AND Lab Coding & Data Wrangling - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="AND Lab Coding & Data Wrangling - Home"/>`);</script>
   
   
 </a></div>
@@ -182,9 +182,8 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../gettingstarted/prereq.html">1a. Prerequisites</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
-</ul>
-</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/chatgpt.html">1c. Learning Resources</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Data Wrangling</span></p>
 <ul class="nav bd-sidenav">
@@ -195,14 +194,13 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/excel.html">2c. Python, Pandas &amp; Excel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/jupyter.html">2d. Jupyter Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/R.html">2e. Python &amp; R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/pythontoR.html">2e. Python &amp; R</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Miscellanious</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3a. Basic Shell (Bash/Zsh/Cmd)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="github.html">3b. Github</a></li>
-<li class="toctree-l1"><a class="reference internal" href="spartan.html">3c. Spartan (HPC)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">3d. ChatGPT &amp; Other AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github.html">3b. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spartan.html">3c. Spartan (UoM HPC)</a></li>
 </ul>
 
     </div>
@@ -356,12 +354,15 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="a-basic-shell-bash-zsh-cmd">
 <h1>3a. Basic Shell (Bash/Zsh/Cmd)<a class="headerlink" href="#a-basic-shell-bash-zsh-cmd" title="Link to this heading">#</a></h1>
 <p><strong>Shells</strong> are tools used to communicate and interact with your computer through text. You may be familiar with <strong>Command Prompt</strong> in Windows or the <strong>Terminal</strong> in Mac, which are examples of shells - it is like a basic interface for communicating and giving instructions to your computer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul class="simple">
 <li><p><strong>Bash</strong> is the default shell for Mac and Linux.</p></li>
 <li><p><strong>Zsh</strong> is a more modern version of Bash, and is the default shell for newer Mac and Linux systems.</p></li>
 <li><p><strong>Command Prompt</strong> is the default shell for Windows.</p></li>
 <li><p><strong>PowerShell</strong> is an advanced shell, and is typically associated with Windows.</p></li>
 </ul>
+</div>
 <p>Knowing basic shell is useful for using more technical systems, such as navigating in a terminal (such as the terminal in VSCode or RStudio) or using high-performance computing networks.</p>
 <p>You can start using a shell by opening the terminal in Mac or the command prompt in Windows.</p>
 <blockquote>
@@ -383,9 +384,10 @@ document.write(`
 <div><p>For example, try typing out <code class="docutils literal notranslate"><span class="pre">ls</span></code> (Mac) or <code class="docutils literal notranslate"><span class="pre">dir</span></code> (Windows) in your terminal/command prompt. When the list appears, type <code class="docutils literal notranslate"><span class="pre">cd</span></code> + one of the directory names that pop up, such as <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Documents</span></code>. You will notice that you have moved to the Documents folder/directory.</p>
 </div></blockquote>
 <p>To move back up one folder/directory, simply type in <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../</span></code>.</p>
-<blockquote>
-<div><p><code class="docutils literal notranslate"><span class="pre">./</span></code> represents your current directory, and <code class="docutils literal notranslate"><span class="pre">../</span></code> represents the folder/directory above. You can go up multiple levels by chaining the latter, e.g., <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../../</span></code>.</p>
-</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">./</span></code> represents your current directory, and <code class="docutils literal notranslate"><span class="pre">../</span></code> represents the folder/directory above. You can go up multiple levels by chaining the latter, e.g., <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../../../</span></code>.</p>
+</div>
 <p>Below is an extensive table showing all your possible commands in Bash/Zsh and Command Prompt.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -515,7 +517,7 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../python/R.html"
+       href="../python/pythontoR.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -528,7 +530,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">3b. Github</p>
+        <p class="prev-next-title">3b. GitHub</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -548,7 +550,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By David Cui & Yubing Zhang
+By David Cui (Affective Neuroscience and Development Lab)
 </p>
 
   </div>
