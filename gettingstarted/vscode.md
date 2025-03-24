@@ -41,7 +41,4 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
   <source src="https://github.com/DavidSCui/DataWranglingTest/blob/7bb3ca77a550461a02ad8cc851427ad8b4572b03/videos/video4-venv.mp4" type="video/mp4">
   Your browser does not support the video tag.
 
-
-https://github.com/DavidSCui/DataWranglingTest/blob/7bb3ca77a550461a02ad8cc851427ad8b4572b03/videos/video4-venv.mp4
-
 </video>
