@@ -9,7 +9,7 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
 1. First, we'll want to install the Python extension for VSCode, which can be done via the **extensions** tab on the left. Search up "Python" once prompted in the top-left window, and download the Python extension.
 
 <video width="640" height="360" controls>
-  <source src="videos/video1-python.mov" type="video/mov">
+  <source src="videos/video1-python.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -18,14 +18,14 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
     **Create a new file** by pressing the new file icon next to the folder's name or right click on the empty left panel, then name your file and **end the filename with .py** to tell the computer that you are making a Python file.
 
 <video width="640" height="360" controls>
-  <source src="videos/video2-newfile.mov" type="video/mov">
+  <source src="videos/video2-newfile.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
 3. You'll want to open up your terminal by clicking the button on the top-right of your screen that looks like an eraser pointing downwards. 
 
 <video width="640" height="360" controls>
-  <source src="videos/video3-helloworld.mov" type="video/mov">
+  <source src="videos/video3-helloworld.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -38,8 +38,6 @@ Once you have installed VSCode, open it up and we have a few things we'll need t
     6. select the latest version of Python available to you
 
 <video width="640" height="360" controls>
-  <source src="videos/video4-venv.mov" type="video/mov">
+  <source src="videos/video4-venv.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-
-# I think the problem is that the website is built from gh-page, but the videos are stored outside the _build.
